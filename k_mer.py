@@ -1,20 +1,20 @@
 # -*- coding: utf-8 -*-
 
-
+import argparse
 import itertools
+import numpy as np
 
 bases=["A", "U", "G", "C"]
 def create_features(k):
     list = ["".join(p) for p in itertools.product(bases, repeat=k)]
     return list
 
+
 def create_dict(list):
     kmers = {}
     for i in list:
         kmers[i]=0
     return kmers
-import numpy as np
-
 
 
 # Get the k-mer nucleotide composition
@@ -35,7 +35,6 @@ def getArray(k):
     with open("C:/Users/Jensen Wang/Desktop/Supp/SuppS3.txt", "r") as file_object:
         SuppS3 = file_object.readlines()
     
-      
     # Get the occurrence number of each k-mer for a RNA sequence
     integer = -1
     for sequences in [SuppS3]: #Here, variable should be chaanged for different RNA of species
@@ -56,17 +55,11 @@ def getArray(k):
                     j += 1
                     k_array[integer][j] = count
    
-    
-    
-     
     # Calculate the occurrence frequency of each k-mer for a RNA sequence
     k_array = k_array.astype("float")
     for i in range(k_array.shape[0]):
         k_array[i] = k_array[i] / sum(k_array[i])
     return k_array
-
-
-
 
 
 def getIndependentArray(k):
@@ -107,9 +100,6 @@ def getIndependentArray(k):
     return k_array
 
 
-
-
-
 # Set the appropriate label for each class of RNA sequences
 def getTarget():
     # RNA sequences 472-944 in S3 contains no pseudouridine sites, and we set the label of these sequences as -1
@@ -127,6 +117,7 @@ def getTarget():
         target[i] = -1
     return target
 
+
 def getIndependentTarget():
     # RNA sequences 100-200 in S4 contains no pseudouridine sites, and we set the label of these sequences as -1
     # RNA sequences 100-200 in S5 contains no pseudouridine sites, and we set the label of these sequences as -1
@@ -134,17 +125,11 @@ def getIndependentTarget():
     target = np.ones((200,), dtype=int)
     for i in range(100,200): 
         target[i] = -1
-
-
-
     return target
 
 
 
-
-
 # The following file generator code also need to be implemented by batches matching with above code.
-
 
 #human8mer = getArray(8)
 #print(human8mer.shape)
