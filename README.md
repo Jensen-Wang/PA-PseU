@@ -13,9 +13,9 @@ Pseudouridine (__Ψ__) is the most abundant RNA modification existing in ubiquit
 
 **`SuppS5.txt`** is the benchmark dataset for S. cerevisiae.  
 
-**`k_mer.py`** is for the k-mer feature extraction. You can get the k-mer feature of any sequence for the training and testing datasets by run the script ```python k-mer.py``` in the command window.   
+**`k_mer.py`** is for the k-mer feature extraction. You can get the k-mer feature of any sequence for the training and testing datasets by running the script.  
 
-**`SequenceOder.py`** is for the sequence feature extraction. You can get the sequence feature of any sequence for the training and testing datasets by run the script ```python SequenceOrder.py``` in the command window.  
+**`SequenceOder.py`** is for the sequence feature extraction. You can get the sequence feature of any sequence for the training and testing datasets by running the script.
 
 **`model.ipynb`** is the main code of the mdoel which can be run in jypyter notebook. It contains the results and pictures of our model. 
 
